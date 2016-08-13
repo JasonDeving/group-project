@@ -4,3 +4,5 @@ console.log(queryURL);
 $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 	console.log(response[0].full_name);
 });
+
+// var googlemapapiKEY = "AIzaSyAAjy2pGN7KvOJ12ZmSqWsq7Up6iV7IBPU";
