@@ -1,6 +1,7 @@
 var queryURL = "https://restcountries.eu/rest/v1/all";
 console.log(queryURL);
 $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
+	console.log(response.length);
 	console.log(response[0].name);
 });
 
