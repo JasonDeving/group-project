@@ -1,12 +1,3 @@
-.navbar {
-	background-color: #a654cc;
-}
-
-.navbar-nav {
-	margin-left: 700px;
-}
-
-
 html { 
 	height: 100%; 
 }
@@ -17,7 +8,25 @@ body {
 	padding: 0;
 }
 
-#map-canvas { 
-	height: 512px; 
-	width: 512px;
+.navbar {
+	background-color: #a654cc;
+	margin-bottom: 10px;
+}
+
+#searchForm {
+	margin-left: 500px;
+}
+
+.wrapper {
+	width: 100%;
+}
+
+.navbar-nav {
+	margin-left: 700px;
+}
+
+
+#map { 
+	/*width: 1435px;*/
+	height: 738px;
 }

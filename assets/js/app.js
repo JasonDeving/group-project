@@ -15,17 +15,54 @@ $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 
 
 
-
-
-
-
+// display whole map when website loads
 function initialize() {
   var mapOptions = {
-     center: new google.maps.LatLng(-34.397, 150.644),
-     zoom: 1,
-     minZoom: 1
+     center: new google.maps.LatLng(0, 0),
+     zoom: 2
   };
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  drawMarkers(map);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+// click on USA and zoom into it on map
+function clickUSA(){
+  var mapOptions = { 
+  	center: new google.maps.LatLng(38.134557,-97.844238), 
+  	zoom: 5 
+  };
+  var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+google.maps.event.addDomListener(window, 'click', clickUSA);
+
+
+
+// function drawMarkers(map){
+// 	var marker = new google.maps.Marker({
+// 	    position: google.maps.LatLng(38.134557,-97.844238),
+// 	    map: map
+// 	});
+// }
+
+
+
+
+
+
+
+// $('#locate-country').on('click', function(){
+// 	var country = $('#country-input').val().trim();
+// 	SetMapAddress(country);
+// 	return false;
+// });
+
+
+
+
+
