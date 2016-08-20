@@ -37,30 +37,29 @@ function initMap() {
   //     [sheridan.info, sheridan.lat, sheridan.long, 2],
   //     [canada.info, canada.lat, canada.long, 3],
   //   ];
-
+var locations = [];
 var queryURL = "https://restcountries.eu/rest/v1/all";
     $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
           // beginnning of for loop
         for(var i = 0; response.length > i; i++) {
 
-          console.log(response[i].name);
-          console.log(response[i].capital);
-          console.log(response[i].latlng[0] + " , " + response[i].latlng[1]);
-          console.log(response[i].altSpellings[0].toLowerCase());
-          console.log(response[i].currencies[0]);
-          console.log(response[i].languages[0]);
+          // console.log(response[i].name);
+          // console.log(response[i].capital);
+          // console.log(response[i].latlng[0] + " , " + response[i].latlng[1]);
+          // console.log(response[i].altSpellings[0].toLowerCase());
+          // console.log(response[i].currencies[0]);
+          // console.log(response[i].languages[0]);
 
           response[i].name = {
             info: response[i].name,
             lat: response[i].latlng[0],
             long: response[i].latlng[1]
           }
-          locations = [
-          [response[i].name.info, response[i].name.lat, response[i].name.long, i]
-          ];
+          locations.push([response[i].name.info, response[i].name.lat, response[i].name.long, i])
         }
+        console.log("inside the function " + locations.length);
     });
-
+        console.log("outside the function " + locations.length);
 
   // don't touch below only
   var map = new google.maps.Map(document.getElementById('map'), {
