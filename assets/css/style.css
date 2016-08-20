@@ -17,7 +17,6 @@ body {
 	padding: 0;
 }
 
-#map-canvas { 
-	height: 512px; 
-	width: 512px;
+#map {
+  height: 100%;
 }
