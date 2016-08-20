@@ -41,6 +41,7 @@ var locations = [];
 var queryURL = "https://restcountries.eu/rest/v1/all";
     $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
           // beginnning of for loop
+          console.log(response);
         for(var i = 0; response.length > i; i++) {
 
           // console.log(response[i].name);
@@ -50,6 +51,7 @@ var queryURL = "https://restcountries.eu/rest/v1/all";
           // console.log(response[i].currencies[0]);
           // console.log(response[i].languages[0]);
 
+
           response[i].name = {
             info: response[i].name,
             lat: response[i].latlng[0],
@@ -57,34 +59,57 @@ var queryURL = "https://restcountries.eu/rest/v1/all";
           }
           locations.push([response[i].name.info, response[i].name.lat, response[i].name.long, i])
         }
-        console.log("inside the function " + locations.length);
+        console.log(locations);
+          var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 2,
+          center: new google.maps.LatLng(41.976816, -87.659916),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow({});
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+          console.log(locations[i][1], locations[i][2]);
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
+          google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+        console.log("inside the unction " + locations.length);
     });
-        console.log("outside the function " + locations.length);
 
   // don't touch below only
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
-    center: new google.maps.LatLng(41.976816, -87.659916),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
+  // var map = new google.maps.Map(document.getElementById('map'), {
+  //   zoom: 2,
+  //   center: new google.maps.LatLng(41.976816, -87.659916),
+  //   mapTypeId: google.maps.MapTypeId.ROADMAP
+  // });
 
-  var infowindow = new google.maps.InfoWindow({});
+  // var infowindow = new google.maps.InfoWindow({});
 
-  var marker, i;
+  // var marker, i;
 
-  for (i = 0; i < locations.length; i++) {
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-      map: map
-    });
+  // for (i = 0; i < locations.length; i++) {
+  //   marker = new google.maps.Marker({
+  //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+  //     map: map
+  //   });
 
-    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-      return function () {
-        infowindow.setContent(locations[i][0]);
-        infowindow.open(map, marker);
-      }
-    })(marker, i));
-  }
+  //   google.maps.event.addListener(marker, 'click', (function (marker, i) {
+  //     return function () {
+  //       infowindow.setContent(locations[i][0]);
+  //       infowindow.open(map, marker);
+  //     }
+  //   })(marker, i));
+  // }
 }
 
 
