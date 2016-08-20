@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Contagion</title>
+	<title>Map Facts</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<<<<<<< HEAD
+=======
+	<!-- google api -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- google maps api link -->
+  	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz_XtBWoFvRl9yaAzbuS79hDsgRF6U8po">
+    </script>
+>>>>>>> refs/remotes/origin/master
 </head>
 <body>
 	<!-- <div class="wrapper"> -->
@@ -18,11 +26,11 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" style="color: beige;" href="#">Contagion</a>
+		      <a class="navbar-brand" style="color: beige;" href="#">Map Facts</a>
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
+		      <!-- <ul class="nav navbar-nav">
 		        <li><a href="#" style="color: beige;">Link1</a></li>
 		        <li><a href="#" style="color: beige;">Link2</a></li>
 		        <li class="dropdown">
@@ -37,14 +45,15 @@
 		            <li><a href="#">One more separated link</a></li>
 		          </ul>
 		        </li>
-		      </ul>
-		      <form class="navbar-form navbar-left">
+		      </ul> -->
+		      <form class="navbar-form navbar-left" id="searchForm">
 		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
+		          <input type="text" class="form-control" id="country-input" placeholder="Search">
 		        </div>
-		        <button type="submit" class="btn btn-default">Submit</button>
+		        <button type="submit" class="btn btn-default" id="locate-country">Submit</button>
 		      </form>
 		      
+<<<<<<< HEAD
 		    </div>
 		  </div>
 		</nav> 
@@ -55,6 +64,16 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ1WuGkfZ989qhnlMnNbG59So58rURqrk&callback=initMap"
     async defer></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+=======
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div id="map"></div>
+		<!-- end of wrapper -->
+	</div>
+
+	
+>>>>>>> refs/remotes/origin/master
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
 	<!-- <script src="assets/js/initmap.min.js" type="text/javascript"></script> -->
