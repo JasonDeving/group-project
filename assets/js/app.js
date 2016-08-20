@@ -1,5 +1,21 @@
 function initMap() {
   
+  var queryURL = "https://restcountries.eu/rest/v1/all", response;
+    $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
+        // beginnning of for loop
+      for(var i = 0; response.length > i; i++) {
+
+        console.log(response[i].name);
+        console.log(response[i].capital);
+        console.log(response[i].timezones[0]);
+        console.log(response[i].latlng[0] + " , " + response[i].latlng[1]);
+        console.log(response[i].altSpellings[0].toLowerCase());
+        console.log(response[i].currencies[0]);
+        console.log(response[i].languages[0]);
+      }
+  });
+
+  
   var broadway = {
     info: '<strong>Chipotle on Broadway</strong><br>\
           5224 N Broadway St<br> Chicago, IL 60640<br>\
@@ -30,8 +46,12 @@ function initMap() {
       [sheridan.info, sheridan.lat, sheridan.long, 2],
     ];
 
+
+
+
+  // don't touch below only
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
+    zoom: 2,
     center: new google.maps.LatLng(41.976816, -87.659916),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
@@ -59,19 +79,6 @@ function initMap() {
 
 
   
-    var queryURL = "https://restcountries.eu/rest/v1/all", response;
-    $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
-    		// beginnning of for loop
-    	for(var i = 0; response.length > i; i++) {
-
-    		console.log(response[i].name);
-    		console.log(response[i].capital);
-    		console.log(response[i].timezones[0]);
-    		console.log(response[i].latlng[0] + " , " + response[i].latlng[1]);
-    		console.log(response[i].altSpellings[0].toLowerCase());
-    		console.log(response[i].currencies[0]);
-    		console.log(response[i].languages[0]);
-      }
-  });
+    
 // END FUNCTION
 
