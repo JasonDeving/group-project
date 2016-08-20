@@ -1,37 +1,9 @@
-html { 
-	height: 100%; 
-}
-
-body { 
-	height: 100%; 
-	margin: 0; 
+html,
+body {
+	height: 100%;
+	margin: 0;
 	padding: 0;
 }
-
-<<<<<<< HEAD
 #map {
-  height: 100%;
-=======
-.navbar {
-	background-color: #a654cc;
-	margin-bottom: 10px;
-}
-
-#searchForm {
-	margin-left: 500px;
-}
-
-.wrapper {
-	width: 100%;
-}
-
-.navbar-nav {
-	margin-left: 700px;
-}
-
-
-#map { 
-	/*width: 1435px;*/
-	height: 738px;
->>>>>>> refs/remotes/origin/master
+	height: 100%;
 }
